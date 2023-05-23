@@ -24,6 +24,7 @@ app.get('/', (req, res) => {
     res.send('Alô mundo!');    
 });
 
+//rotas para todas as perguntas 
 app.get('/perguntas', (req, res) => {
   connection.query('SELECT * FROM perguntas', (err, rows) => {
     if (err) throw err;
@@ -41,6 +42,7 @@ app.get('/perguntas', (req, res) => {
   });
 });
 
+//rotas para atualizar as perguntas
 app.get('/perguntas_administracao', (req, res) => {
   connection.query('SELECT * FROM perguntas', (err, rows) => {
     if (err) throw err;
@@ -61,6 +63,7 @@ app.get('/perguntas_administracao', (req, res) => {
   });
 });
 
+//rotas para os usuários
 app.get('/usuarios', (req, res) => {
     connection.query('SELECT * FROM usuarios', (err, rows) => {
       if (err) throw err;
@@ -68,6 +71,7 @@ app.get('/usuarios', (req, res) => {
     });
 });
 
+//rotas para fazer login e senha
 app.post('/login', (req, res) => {
   const login = req.body.login;
   const senha = req.body.senha;
@@ -81,6 +85,7 @@ app.post('/login', (req, res) => {
   });
 });
 
+//rotas para buscar perguntas pelo id
 app.get('/perguntas/:id', (req, res) => {
     const id = req.params.id;
     connection.query('SELECT * FROM perguntas WHERE id = ?', [id], (err, rows) => {
@@ -99,7 +104,7 @@ app.post('/perguntas', (req, res) => {
   });
 });
 
-// PUT /perguntas/:id - Atualiza uma pergunta existente
+// PUT /perguntas/:id - Atualiza uma pergunta 
 app.put('/perguntas/:id', (req, res) => {
   const { pergunta, resposta1, resposta2, resposta3, resposta4, alternativacorreta } = req.body;
   const query = `UPDATE perguntas SET pergunta=?, resposta1=?, resposta2=?, resposta3=?, resposta4=?, alternativacorreta=? WHERE id=?`;
@@ -109,7 +114,7 @@ app.put('/perguntas/:id', (req, res) => {
   });
 });
 
-// DELETE /perguntas/:id - Exclui uma pergunta existente
+// DELETE /perguntas/:id - Exclui uma pergunta 
 app.delete('/perguntas/:id', (req, res) => {
   const query = `DELETE FROM perguntas WHERE id=?`;
   connection.query(query, [req.params.id], (err, results, fields) => {

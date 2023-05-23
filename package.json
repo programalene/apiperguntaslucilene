@@ -1,10 +1,10 @@
 {
-  "name": "apiperguntas",
-  "version": "1.0.0",
+  "name": "apiperguntaslucilene",
+  "version": "0.0.1",
   "description": "uma api para quiz em flutter",
   "main": "index.js", 
-  "author": "",
-  "license": "ISC",
+  "author": "Lucilene Renolphi",
+  "license": "Creative Commons Attribution 4.0 International",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2",
