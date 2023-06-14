@@ -14,6 +14,7 @@ const connection = mysql.createConnection({
     password:  'Senac@2020',
     database: 'quizz'
 });
+
   
 connection.connect((err) => {
     if (err) throw err;
